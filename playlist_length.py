@@ -22,9 +22,4 @@ def playlistlength(url):
         return int(hours), int(minutes), seconds
 
     else:
-        print('Something went wrong.')
-
-
-url = 'https://www.youtube.com/playlist?list=PLPtI9OgdtJED18h2t5uzCPTKyV-bh3xcT'
-h, m, s = playlistlength(url)
-print(f"{h} hours, {m} minutes, {s} seconds")
+        return 'wrong_url'
