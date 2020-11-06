@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    data = request.args.get('link')
-    try:
-        time = playlistlength(data)
-    except:
-        time = False
-    return render_template('index.html', time=time)
+    data = request.form.get('link', None)
+    time = playlistlength(data)
+    if time is False and data is None:
+        time = True
+    # print("Data: ", data, "Time", time)  # debugging
+    return render_template('index.html', time=time, data=data)

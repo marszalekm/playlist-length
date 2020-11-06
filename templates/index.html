@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <title>Playlist length</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="static/index.js"></script>
 </head>
 <body>
 
     <div>
-        <form id="link_form">
+        <form id="link_form" method="post">
             <h2 id='lb'>Paste your YouTube playlist url:</h2>
             <br>
             <input id='url' type="text"
@@ -18,14 +16,13 @@
         </form>
     </div>
 
-    {% if time == 'wrong_url' %}
+    {% if time == False %}
         <p id="time">There is something wrong with your link.</p>
-    {% elif time == False %}
+    {% elif time == True %}
         <p id="time"></p>
     {% else %}
         <p id="time">Total length of playlist: {{time[0]}} hours, {{time[1]}} minutes, {{time[2]}} seconds</p>
     {% endif %}
-
 
 </body>
 </html>
